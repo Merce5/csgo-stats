@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "RmfT3Z07V3PzFF1rxcwvoj3x9rwAL6ZGQHYC5p8KoEk=",
+  "Source": "csgo-stats.api",
+  "BasePath": "_content/csgo-stats.api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

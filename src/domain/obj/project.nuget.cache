@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "E7JSHIIzJ9v0WQKUUJu9JJN9nqaSUcv2DoDI7rm0xb5fgQo8quniYMzwYe+q/64+wQthQYHpmTJmYwxVIhFzDA==",
+  "success": true,
+  "projectFilePath": "E:\\OTHIC\\csgo-stats\\src\\domain\\csgo-stats.domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\merce\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.26\\microsoft.netcore.app.ref.6.0.26.nupkg.sha512",
+    "C:\\Users\\merce\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.26\\microsoft.windowsdesktop.app.ref.6.0.26.nupkg.sha512",
+    "C:\\Users\\merce\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.26\\microsoft.aspnetcore.app.ref.6.0.26.nupkg.sha512"
+  ],
+  "logs": []
+}

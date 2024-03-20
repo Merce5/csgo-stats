@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\csgo-stats.api.props" />
+</Project>

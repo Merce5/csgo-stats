@@ -1,0 +1,17 @@
+E:\OTHIC\csgo-stats\src\application\bin\Debug\net6.0\csgo-stats.application.deps.json
+E:\OTHIC\csgo-stats\src\application\bin\Debug\net6.0\csgo-stats.application.runtimeconfig.json
+E:\OTHIC\csgo-stats\src\application\bin\Debug\net6.0\csgo-stats.application.dll
+E:\OTHIC\csgo-stats\src\application\bin\Debug\net6.0\csgo-stats.application.pdb
+E:\OTHIC\csgo-stats\src\application\bin\Debug\net6.0\csgo-stats.domain.dll
+E:\OTHIC\csgo-stats\src\application\bin\Debug\net6.0\csgo-stats.domain.pdb
+E:\OTHIC\csgo-stats\src\application\obj\Debug\net6.0\csgo-stats.application.csproj.AssemblyReference.cache
+E:\OTHIC\csgo-stats\src\application\obj\Debug\net6.0\csgo-stats.application.GeneratedMSBuildEditorConfig.editorconfig
+E:\OTHIC\csgo-stats\src\application\obj\Debug\net6.0\csgo-stats.application.AssemblyInfoInputs.cache
+E:\OTHIC\csgo-stats\src\application\obj\Debug\net6.0\csgo-stats.application.AssemblyInfo.cs
+E:\OTHIC\csgo-stats\src\application\obj\Debug\net6.0\csgo-stats.application.csproj.CoreCompileInputs.cache
+E:\OTHIC\csgo-stats\src\application\obj\Debug\net6.0\csgo-stats.application.csproj.CopyComplete
+E:\OTHIC\csgo-stats\src\application\obj\Debug\net6.0\csgo-stats.application.dll
+E:\OTHIC\csgo-stats\src\application\obj\Debug\net6.0\refint\csgo-stats.application.dll
+E:\OTHIC\csgo-stats\src\application\obj\Debug\net6.0\csgo-stats.application.pdb
+E:\OTHIC\csgo-stats\src\application\obj\Debug\net6.0\csgo-stats.application.genruntimeconfig.cache
+E:\OTHIC\csgo-stats\src\application\obj\Debug\net6.0\ref\csgo-stats.application.dll
