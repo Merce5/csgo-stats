@@ -2,9 +2,9 @@
 
 #nullable disable
 
-namespace csgostats.infrastructure.Migrations
+namespace csgostats.application.Migrations
 {
-    public partial class Initial : Migration
+    public partial class ChangedDbContext : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
