@@ -1,4 +1,4 @@
-using application.Models.Response;
+using application.Models.Response.Player;
 
 namespace application.Interfaces
 {
@@ -7,5 +7,6 @@ namespace application.Interfaces
         PlayerResponse? GetPlayerByName(string? nickName);
         PlayerResponse? GetPlayerById(int? id);
         IEnumerable<RankingResponse> GetTopPlayersStats();
+        IEnumerable<PlayerResponse> GetAllPlayers();
     }
 }

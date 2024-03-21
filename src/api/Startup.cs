@@ -71,6 +71,8 @@ namespace csgo_stats.api
                 .AddSingleton<IUserService, UserService>()
                 .AddSingleton<IPlayerService, PlayerService>()
                 .AddSingleton<IPlayerMapper, PlayerMapper>()
+                .AddSingleton<ITeamService, TeamService>()
+                .AddSingleton<ITeamMapper, TeamMapper>()
                 .AddSingleton<IJwtUtils, JwtUtils>();
     }
 }

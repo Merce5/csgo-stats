@@ -1,5 +1,5 @@
 using application.Interfaces;
-using application.Models.Response;
+using application.Models.Response.Player;
 using Microsoft.AspNetCore.Mvc;
 
 namespace csgo_stats.api.Controllers
@@ -14,6 +14,7 @@ namespace csgo_stats.api.Controllers
         {
             _playerService = playerService;
         }
+
         [HttpGet]
         public IResult GetOnePlayer([FromQuery] int? id, [FromQuery] string? nickName)
         {
@@ -22,7 +23,7 @@ namespace csgo_stats.api.Controllers
                 return Results.Conflict("Unauthorized 404");
             }
 
-            PlayerResponse? response = null;
+            PlayerResponse? response;
             if (id != null && nickName != null)
             {
                 return Results.Conflict(new
@@ -38,6 +39,19 @@ namespace csgo_stats.api.Controllers
             {
                 response = _playerService.GetPlayerByName(nickName);
             }
+            return Results.Ok(response);
+        }
+
+        [HttpGet("all")]
+        public IResult GetAllPlayers()
+        {
+            if (HttpContext.Items["User"] == null)
+            {
+                return Results.Conflict("Unauthorized 404");
+            }
+
+            var response = _playerService.GetAllPlayers();
+
             return Results.Ok(response);
         }
 

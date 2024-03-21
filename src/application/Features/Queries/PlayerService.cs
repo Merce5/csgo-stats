@@ -1,5 +1,5 @@
 using application.Interfaces;
-using application.Models.Response;
+using application.Models.Response.Player;
 using csgo_stats.Models;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -16,9 +16,28 @@ namespace application.Features.Queries
             _playerMapper = playerMapper;
         }
 
+        public IEnumerable<PlayerResponse> GetAllPlayers()
+        {
+            List<PlayerResponse> response = new List<PlayerResponse>();
+            using (var scope = _serviceProvider.CreateScope())
+            {
+                var dbContext = scope.ServiceProvider.GetRequiredService<CsgoDbContext>();
+
+                var players = dbContext.Player.Select(x => x);
+                foreach (var player in players)
+                {
+                    var playerResponse = GetPlayerStadistics(player);
+
+                    response.Add(playerResponse);
+                }
+            }
+
+            return response;
+        }
+
         public PlayerResponse? GetPlayerById(int? id)
         {
-            PlayerResponse? response = null;
+            PlayerResponse? response;
             using (var scope = _serviceProvider.CreateScope())
             {
                 var dbContext = scope.ServiceProvider.GetRequiredService<CsgoDbContext>();
@@ -40,7 +59,7 @@ namespace application.Features.Queries
 
         public PlayerResponse? GetPlayerByName(string? nickName)
         {
-            PlayerResponse? response = null;
+            PlayerResponse? response;
             using (var scope = _serviceProvider.CreateScope())
             {
                 var dbContext = scope.ServiceProvider.GetRequiredService<CsgoDbContext>();
@@ -72,7 +91,7 @@ namespace application.Features.Queries
                     .GroupBy(k => k.PlayerId)
                     .Select(x => new
                     {
-                        Id = x.First().PlayerId,
+                        Id = x.FirstOrDefault().PlayerId,
                         TotalKills = x.Sum(y => y.KillCount)
                     })
                     .OrderByDescending(x => x.TotalKills).ToList();

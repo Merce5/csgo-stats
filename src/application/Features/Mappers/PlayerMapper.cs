@@ -1,5 +1,5 @@
 using application.Interfaces;
-using application.Models.Response;
+using application.Models.Response.Player;
 using csgo_stats.Models;
 
 namespace application.Features.Mappers

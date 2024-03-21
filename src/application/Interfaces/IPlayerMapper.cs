@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using application.Models.Response;
+using application.Models.Response.Player;
 using csgo_stats.Models;
 
 namespace application.Interfaces

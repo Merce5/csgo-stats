@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace application.Models.Response
+namespace application.Models.Response.Player
 {
     public class PlayerResponse
     {
