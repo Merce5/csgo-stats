@@ -12,8 +12,8 @@ using application.Features;
 namespace csgostats.application.Migrations
 {
     [DbContext(typeof(CsgoDbContext))]
-    [Migration("20240320221607_ChangedTokenController")]
-    partial class ChangedTokenController
+    [Migration("20240321142322_KillColumnRename")]
+    partial class KillColumnRename
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,6 +23,93 @@ namespace csgostats.application.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("csgo_stats.Models.Kills", b =>
+                {
+                    b.Property<int>("PlayerId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MatchId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("KillCount")
+                        .HasColumnType("int");
+
+                    b.HasKey("PlayerId", "MatchId");
+
+                    b.ToTable("Kills");
+                });
+
+            modelBuilder.Entity("csgo_stats.Models.Match", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("LoserTeam")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MVP")
+                        .HasColumnType("int");
+
+                    b.Property<int>("WinnerTeam")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Match");
+                });
+
+            modelBuilder.Entity("csgo_stats.Models.Player", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NickName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TeamId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Player");
+                });
+
+            modelBuilder.Entity("csgo_stats.Models.Team", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Logo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Team");
+                });
 
             modelBuilder.Entity("domain.Models.Auth.User", b =>
                 {

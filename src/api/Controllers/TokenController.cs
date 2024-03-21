@@ -4,7 +4,6 @@ using System.Text;
 using application.Interfaces;
 using application.Models.Request;
 using application.Models.Settings;
-using application.Features;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -17,12 +16,10 @@ namespace csgo_stats.api.Controllers
     public class TokenController : ControllerBase
     {
         private readonly IUserService _userService;
-        private readonly CsgoDbContext _context;
         private readonly IOptions<JwtSettings> _jwtSettings;
-        public TokenController(IUserService userService, CsgoDbContext context, IOptions<JwtSettings> jwtSettings)
+        public TokenController(IUserService userService, IOptions<JwtSettings> jwtSettings)
         {
             _userService = userService;
-            _context = context;
             _jwtSettings = jwtSettings;
         }
 
@@ -36,23 +33,16 @@ namespace csgo_stats.api.Controllers
                 return Results.Forbid();
             }
 
-            var claims = new List<Claim>
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(_jwtSettings.Value.Key);
+            var tokenDescriptor = new SecurityTokenDescriptor
             {
-                new Claim(ClaimTypes.Sid, user.Id),
-                new Claim(ClaimTypes.Name, user.UserName),
-                new Claim(ClaimTypes.GivenName, $"{user.FirstName} {user.LastName}")
+                Subject = new ClaimsIdentity(new[] { new Claim("id", user.Id.ToString()) }),
+                Expires = DateTime.UtcNow.AddMinutes(20),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
-
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Value.Key));
-            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature);
-            var tokenDescriptor = new JwtSecurityToken(
-                issuer: _jwtSettings.Value.Issuer,
-                audience: _jwtSettings.Value.Audience,
-                claims: claims,
-                expires: DateTime.Now.AddMinutes(720),
-                signingCredentials: credentials);
-
-            var jwt = new JwtSecurityTokenHandler().WriteToken(tokenDescriptor);
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            var jwt = tokenHandler.WriteToken(token);
 
             return Results.Ok(new
             {

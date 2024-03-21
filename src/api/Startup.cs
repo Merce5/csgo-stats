@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using application.Features.Mappers;
 
 namespace csgo_stats.api
 {
@@ -68,6 +69,8 @@ namespace csgo_stats.api
         private static IServiceCollection AddCustomServices(this IServiceCollection services) =>
             services
                 .AddSingleton<IUserService, UserService>()
+                .AddSingleton<IPlayerService, PlayerService>()
+                .AddSingleton<IPlayerMapper, PlayerMapper>()
                 .AddSingleton<IJwtUtils, JwtUtils>();
     }
 }

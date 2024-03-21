@@ -15,12 +15,12 @@ namespace application.Features.Queries
             _serviceProvider = serviceProvider;
         }
 
-        public User? GetById(int id)
+        public User? GetById(string id)
         {
             using (var scope = _serviceProvider.CreateScope())
             {
                 var dbContext = scope.ServiceProvider.GetRequiredService<CsgoDbContext>();
-                return dbContext.Users.Where(user => user.Id == id.ToString()).FirstOrDefault();
+                return dbContext.Users.Where(user => user.Id == id).FirstOrDefault();
             }
         }
 

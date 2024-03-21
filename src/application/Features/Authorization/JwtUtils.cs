@@ -10,7 +10,12 @@ namespace application.Features.Authorization
     public class JwtUtils : IJwtUtils
     {
         private readonly IOptions<JwtSettings> _jwtSettings;
-        public int? ValidateToken(string token)
+        public JwtUtils(IOptions<JwtSettings> jwtSettings)
+        {
+            _jwtSettings = jwtSettings;
+        }
+
+        public string ValidateToken(string token)
         {
             if (token == null)
                 return null;
@@ -30,7 +35,7 @@ namespace application.Features.Authorization
                 }, out SecurityToken validatedToken);
 
                 var jwtToken = (JwtSecurityToken)validatedToken;
-                var userId = int.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
+                var userId = jwtToken.Claims.First(x => x.Type == "id").Value;
 
                 return userId;
             }

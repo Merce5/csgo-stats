@@ -21,7 +21,7 @@ namespace csgo_stats.api.Validators.Authorization
             var userId = _jwtUtils.ValidateToken(token!);
             if (userId != null)
             {
-                context.Items["User"] = _userService.GetById(userId.Value);
+                context.Items["User"] = _userService.GetById(userId);
             }
 
             await _next(context);

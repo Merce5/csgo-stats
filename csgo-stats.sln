@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csgo-stats.api", "src\api\c
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csgo-stats.domain", "src\domain\csgo-stats.domain.csproj", "{3CB3395D-9191-4BF5-8703-E2356BEB805D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csgo-stats.infrastructure", "src\infrastructure\csgo-stats.infrastructure.csproj", "{9E43B077-ADE2-4D76-825E-EC3863C47A8D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csgo-stats.application", "src\application\csgo-stats.application.csproj", "{2A3EF3E2-CAD5-4487-853F-E1620EBD397E}"
 EndProject
 Global
@@ -30,10 +28,6 @@ Global
 		{3CB3395D-9191-4BF5-8703-E2356BEB805D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CB3395D-9191-4BF5-8703-E2356BEB805D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CB3395D-9191-4BF5-8703-E2356BEB805D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9E43B077-ADE2-4D76-825E-EC3863C47A8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9E43B077-ADE2-4D76-825E-EC3863C47A8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9E43B077-ADE2-4D76-825E-EC3863C47A8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9E43B077-ADE2-4D76-825E-EC3863C47A8D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2A3EF3E2-CAD5-4487-853F-E1620EBD397E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2A3EF3E2-CAD5-4487-853F-E1620EBD397E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A3EF3E2-CAD5-4487-853F-E1620EBD397E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -42,7 +36,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D1A7623C-2D53-41E9-B1A9-A7DF16EC987F} = {FAB30A07-4440-4FC8-9EA3-82C5EE554EA7}
 		{3CB3395D-9191-4BF5-8703-E2356BEB805D} = {FAB30A07-4440-4FC8-9EA3-82C5EE554EA7}
-		{9E43B077-ADE2-4D76-825E-EC3863C47A8D} = {FAB30A07-4440-4FC8-9EA3-82C5EE554EA7}
 		{2A3EF3E2-CAD5-4487-853F-E1620EBD397E} = {FAB30A07-4440-4FC8-9EA3-82C5EE554EA7}
 	EndGlobalSection
 EndGlobal

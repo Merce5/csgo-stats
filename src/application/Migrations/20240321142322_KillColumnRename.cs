@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace csgostats.application.Migrations
 {
-    public partial class ChangedTokenController : Migration
+    public partial class KillColumnRename : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -48,6 +48,64 @@ namespace csgostats.application.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Kills",
+                columns: table => new
+                {
+                    PlayerId = table.Column<int>(type: "int", nullable: false),
+                    MatchId = table.Column<int>(type: "int", nullable: false),
+                    KillCount = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Kills", x => new { x.PlayerId, x.MatchId });
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Match",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    WinnerTeam = table.Column<int>(type: "int", nullable: false),
+                    LoserTeam = table.Column<int>(type: "int", nullable: false),
+                    MVP = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Match", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Player",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NickName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TeamId = table.Column<int>(type: "int", nullable: false),
+                    Country = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Player", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Team",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Logo = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Team", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -212,6 +270,18 @@ namespace csgostats.application.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Kills");
+
+            migrationBuilder.DropTable(
+                name: "Match");
+
+            migrationBuilder.DropTable(
+                name: "Player");
+
+            migrationBuilder.DropTable(
+                name: "Team");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

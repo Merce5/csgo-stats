@@ -10,6 +10,5 @@
   <ItemGroup>
     <ProjectReference Include="..\application\csgo-stats.application.csproj" />
     <ProjectReference Include="..\domain\csgo-stats.domain.csproj" />
-    <ProjectReference Include="..\infrastructure\csgo-stats.infrastructure.csproj" />
   </ItemGroup>
 </Project>
