@@ -36,7 +36,7 @@ namespace csgo_stats.api
 
         private static IServiceCollection AddDbServices(this IServiceCollection services, IConfiguration configuration) =>
             services.AddDbContext<CsgoDbContext>(op =>
-                op.UseSqlServer(Environment.GetEnvironmentVariable("ConnectionString"))
+                op.UseSqlServer(configuration["ConnectionString"] ?? configuration.GetConnectionString("DefaultValue"))
             );
 
         private static IdentityBuilder AddIdentityServices(this IServiceCollection services) =>
