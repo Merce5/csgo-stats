@@ -1,16 +1,16 @@
-using System.Text;
+using application.Features;
 using application.Features.Authorization;
+using application.Features.Mappers;
 using application.Features.Queries;
 using application.Interfaces;
 using application.Models.Settings;
 using domain.Models.Auth;
-using application.Features;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using application.Features.Mappers;
+using System.Text;
 
 namespace csgo_stats.api
 {

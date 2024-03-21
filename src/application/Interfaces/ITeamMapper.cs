@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using application.Models.Response.Team;
 using csgo_stats.Models;
 

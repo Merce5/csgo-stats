@@ -1,13 +1,13 @@
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 using application.Interfaces;
 using application.Models.Request;
 using application.Models.Settings;
+using domain.Models.Auth;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using domain.Models.Auth;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace csgo_stats.api.Controllers
 {
